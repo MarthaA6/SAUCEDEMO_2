@@ -8,5 +8,3 @@ class ProductLocator:
     SAUCE_LABS_FLEECE_JACKET_4 = (By.CSS_SELECTOR, "#add-to-cart-sauce-labs-fleece-jacket")
     SAUCE_LABS_ONESIE_5 = (By.CSS_SELECTOR, "#add-to-cart-sauce-labs-onesie")
     TEST_ALL_THE_THINGS_T_TSHIRT_6 = (By.CSS_SELECTOR, "#add-to-cart-test\.allthethings\(\)-t-shirt-\(red\)")
-
-

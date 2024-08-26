@@ -3,6 +3,7 @@ from selenium import webdriver
 
 from Check_Out_Page.CheckOutPage import CheckOutPage
 from Collapsible_Page.CollapsiblePage import CollapsiblePage
+from Config.Config import ConfigYourInfo, ConfigLogin
 from Log_Out_Page.LogOutPage import LogOutPage
 from Login_Page.LoginPage import LoginPage
 from Overview_Page.OverviewPage import OverviewPage
@@ -24,13 +25,13 @@ def driver_setup():
 def login(driver_setup):
     driver = driver_setup
     login_page = LoginPage(driver)
-    login_page.login_url("https://www.saucedemo.com/")
+    login_page.login_url(ConfigLogin.BaseUrl)
     return login_page
 
 
 def test_login_page_automation_playground(login):
-    login.enter_username("standard_user")
-    login.enter_password("secret_sauce")
+    login.enter_username(ConfigLogin.USERNAME)
+    login.enter_password(ConfigLogin.PASSWORD)
     login.click_login()
 
 
@@ -56,9 +57,9 @@ def test_check_out_page_on_automation_playground(login):
 
 def test_information_form_on_automation_playground(login):
     information_form = YourInformationPage(login.driver)
-    information_form.enter_first_name("martha")
-    information_form.enter_last_name("name")
-    information_form.enter_zip_postal_code(12345)
+    information_form.enter_first_name(ConfigYourInfo.FIRST_NAME)
+    information_form.enter_last_name(ConfigYourInfo.LAST_NAME)
+    information_form.enter_zip_postal_code(ConfigYourInfo.ZIP_POSTAL)
     information_form.continue_button()
 
 
