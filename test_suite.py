@@ -1,5 +1,6 @@
 import pytest
 from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
 
 from Check_Out_Page.CheckOutPage import CheckOutPage
 from Collapsible_Page.CollapsiblePage import CollapsiblePage
@@ -14,7 +15,11 @@ from YourInformation_Page.YourInformationPage import YourInformationPage
 
 @pytest.fixture(scope="session")
 def driver_setup():
-    driver = webdriver.Chrome()
+    chrome_options = Options()
+    # Uncomment the line below to run in headless mode
+    # chrome_options.add_argument("--headless")  # Run Chrome in headless mode
+    chrome_options.add_argument("--disable-gpu")  # Optional: Disable GPU acceleration
+    driver = webdriver.Chrome(options=chrome_options)
     driver.implicitly_wait(20)
     driver.maximize_window()
     yield driver
